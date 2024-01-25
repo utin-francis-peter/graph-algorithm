@@ -5,6 +5,9 @@ import GameForm from "./components/game-form";
 
 const App = () => {
   const [gameInputs, setGameInputs] = useState<TAppState>(INITIAL_APP_STATE);
+  const [gameIsOn, setGameIsOn] = useState(false);
+
+  // console.log(gameInputs)
 
   // function responsible for updating gameInputs data
   const handleGameInputs = ({ action, payload }: THandleGameInputs) => {
@@ -72,7 +75,7 @@ const App = () => {
 
   return (
     <div>
-      <GameForm />
+      <GameForm setGameIsOn={setGameIsOn} handleGameInputs={handleGameInputs} />
     </div>
   );
 };

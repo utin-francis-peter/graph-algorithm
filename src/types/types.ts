@@ -38,3 +38,8 @@ export type THandleGameInputs =
       action: "clearStep";
       payload: undefined;
     };
+
+export type TGameForm = {
+  handleGameInputs: (props: THandleGameInputs) => void;
+  setGameIsOn: (props: boolean) => void;
+};
