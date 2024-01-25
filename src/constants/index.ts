@@ -1,7 +1,7 @@
 import { TAppState } from "../types/types";
 
 export const INITIAL_APP_STATE: TAppState = {
-  dimension: {
+  tableDimension: {
     rows: 0,
     cols: 0,
   },

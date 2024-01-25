@@ -9,6 +9,7 @@ const GameForm: React.FC<TGameForm> = ({ handleGameInputs, setGameIsOn }) => {
     values: string,
     action: "setBotPosition" | "setCookiePosition"
   ) => {
+    // TODO: ensure entered positions are within the range of table rows and cols
     const pattern = /^\d+,\d+$/;
     if (pattern.test(values)) {
       // ensure the values are greater than zero before setting botPosition

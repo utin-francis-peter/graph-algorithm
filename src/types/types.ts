@@ -11,7 +11,7 @@ export type TPosition = {
 export type TStep = "Move Up" | "Move Down" | "Move Left" | "Move Right";
 
 export type TAppState = {
-  dimension: TDimension;
+  tableDimension: TDimension;
   botPosition: TPosition;
   cookiePosition: TPosition;
   steps: TStep[];
