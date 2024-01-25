@@ -23,7 +23,7 @@ worth noting:
 */
 export type THandleGameInputs =
   | {
-      action: "setRows" | "setCols" | "setStepCount";
+      action: "setRows" | "setCols";
       payload: number;
     }
   | {
