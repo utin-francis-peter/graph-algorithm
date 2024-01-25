@@ -27,10 +27,16 @@ const GameTable: React.FC<TGameTable> = ({
                   .map((_, j) => {
                     return (
                       <td
-                        className={`w-[${100 / rows}] h-[${
+                        key={j}
+                        className={`w-[${100 / rows}%] h-[${
                           100 / cols
-                        }] border-2 border-black`}
-                        key={j}></td>
+                        }%] border-2 border-black text-center`}>
+                        {botPosition.x === i && botPosition.y === j
+                          ? "🤖"
+                          : cookiePosition.x === i && cookiePosition.y === j
+                          ? "🍪"
+                          : ""}
+                      </td>
                     );
                   })}
               </tr>
