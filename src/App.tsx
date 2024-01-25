@@ -75,7 +75,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="h-screen flex items-center justify-center">
       {!gameIsOn ? (
         <GameForm
           gameInputs={gameInputs}
