@@ -26,6 +26,7 @@ const GameForm: React.FC<TGameForm> = ({
           gameInputs.tableDimension.rows < x) ||
         (action === "setCookiePosition" && gameInputs.tableDimension.cols < y)
       ) {
+        // TODO: the error message should clearly indicate if cookie or bot position is above table dimension
         setErrorMssg("Entered position is above table dimension");
       } else {
         setErrorMssg("");
@@ -106,7 +107,9 @@ const GameForm: React.FC<TGameForm> = ({
 
         <h5 className="text-red-500 text-base">{errorMssg}</h5>
 
-        <button className="bg-blue-500 text-white p-2 rounded-lg">
+        <button
+          disabled={Boolean(errorMssg.trim())}
+          className="bg-blue-500 text-white p-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed">
           Generate
         </button>
       </form>

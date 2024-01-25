@@ -2,6 +2,7 @@ import { useState } from "react";
 import { TAppState, THandleGameInputs } from "./types/types";
 import { INITIAL_APP_STATE } from "./constants";
 import GameForm from "./components/game-form";
+import GameInterface from "./components/game-interface";
 
 const App = () => {
   const [gameInputs, setGameInputs] = useState<TAppState>(INITIAL_APP_STATE);
@@ -82,7 +83,7 @@ const App = () => {
           handleGameInputs={handleGameInputs}
         />
       ) : (
-        <p>Game is on</p>
+        <GameInterface gameInputs={gameInputs} />
       )}
     </div>
   );
