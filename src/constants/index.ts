@@ -15,3 +15,6 @@ export const INITIAL_APP_STATE: TAppState = {
   },
   steps: [],
 };
+
+export const MIN_ROWS = 5;
+export const MIN_COLS = 5;
