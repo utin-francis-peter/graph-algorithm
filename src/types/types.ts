@@ -16,3 +16,25 @@ export type TAppState = {
   cookiePosition: TPosition;
   steps: TStep[];
 };
+
+/*
+worth noting:
+- stepCounts is determined by rows, cols, and position of bot and cookie
+*/
+export type THandleGameInputs =
+  | {
+      action: "setRows" | "setCols" | "setStepCount";
+      payload: number;
+    }
+  | {
+      action: "setBotPosition" | "setCookiePosition";
+      payload: TPosition;
+    }
+  | {
+      action: "addStep";
+      payload: TStep;
+    }
+  | {
+      action: "clearStep";
+      payload: undefined;
+    };
