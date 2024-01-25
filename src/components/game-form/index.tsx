@@ -2,26 +2,42 @@ import { useState } from "react";
 import { MIN_COLS, MIN_ROWS } from "../../constants";
 import { TGameForm } from "../../types/types";
 
-const GameForm: React.FC<TGameForm> = ({ handleGameInputs, setGameIsOn }) => {
+const GameForm: React.FC<TGameForm> = ({
+  gameInputs,
+  handleGameInputs,
+  setGameIsOn,
+}) => {
   const [errorMssg, setErrorMssg] = useState("");
 
   const validateAndSetPositions = (
     values: string,
     action: "setBotPosition" | "setCookiePosition"
   ) => {
-    // TODO: ensure entered positions are within the range of table rows and cols
     const pattern = /^\d+,\d+$/;
     if (pattern.test(values)) {
       // ensure the values are greater than zero before setting botPosition
-      setErrorMssg("");
       const [x, y] = values.split(",").map((value) => +value);
-      handleGameInputs({
-        action,
-        payload: {
-          x,
-          y,
-        },
-      });
+
+      // checking that bot and cookie position is within the range of table rows and columns
+      if (
+        (action === "setBotPosition" && gameInputs.tableDimension.rows < x) ||
+        (action === "setBotPosition" && gameInputs.tableDimension.cols < y) ||
+        (action === "setCookiePosition" &&
+          gameInputs.tableDimension.rows < x) ||
+        (action === "setCookiePosition" && gameInputs.tableDimension.cols < y)
+      ) {
+        setErrorMssg("Entered position is above table dimension");
+      } else {
+        setErrorMssg("");
+
+        handleGameInputs({
+          action,
+          payload: {
+            x,
+            y,
+          },
+        });
+      }
     } else {
       setErrorMssg("Bot position has to be in x,y format");
     }

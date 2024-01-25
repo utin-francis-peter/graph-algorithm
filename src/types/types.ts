@@ -40,6 +40,7 @@ export type THandleGameInputs =
     };
 
 export type TGameForm = {
+  gameInputs: TAppState;
   handleGameInputs: (props: THandleGameInputs) => void;
   setGameIsOn: (props: boolean) => void;
 };

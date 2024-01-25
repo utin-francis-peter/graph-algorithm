@@ -77,6 +77,7 @@ const App = () => {
     <div>
       {!gameIsOn ? (
         <GameForm
+          gameInputs={gameInputs}
           setGameIsOn={setGameIsOn}
           handleGameInputs={handleGameInputs}
         />
